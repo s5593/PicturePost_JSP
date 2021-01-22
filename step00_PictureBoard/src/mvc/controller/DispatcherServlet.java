@@ -52,18 +52,19 @@ public class DispatcherServlet extends HttpServlet {
 		String key = request.getParameter("key");
 		String methodName = request.getParameter("methodName");
 		if(key==null || key.equals("")) {
-			key = "elec";
-			methodName="select";
+			key = "post";
+			methodName="selectAll";
 		}
 		System.out.println("front 진입.... key = "+key);
 		System.out.println("front 진입.... methodName = "+methodName);
-
+		System.out.println(1);
 		Controller controller= map.get(key);
 		Class<?> cls = clsMap.get(key);
 		try {
 			Method method =  cls.getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
-			
+			System.out.println(2);
 			ModelAndView mv = (ModelAndView)method.invoke(controller, request, response);
+			System.out.println(3);
 	//		if(key.equals("select")) {
 	//			//select 기능
 	//			controller = new SelectController();
@@ -79,6 +80,7 @@ public class DispatcherServlet extends HttpServlet {
 			
 			
 			if(mv.isRedirect()) {
+				System.out.println(4);
 				response.sendRedirect(mv.getViewName());
 			}
 			else {

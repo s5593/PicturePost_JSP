@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import mvc.service.UserService;
+import mvc.service.UserServiceImpl;
 import mvc.vo.UserDTO;
-import sku.mvc.service.UserServiceImpl;
 
 public class UserController implements Controller {
   private UserService userService = new UserServiceImpl();
@@ -24,7 +24,7 @@ public class UserController implements Controller {
 	 * 로그인
 	 */
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException, SQLException{
+			throws Exception{
 		System.out.println("User의 logIn 호출");
 		//서비스 -> dao
 		String userId = request.getParameter("userId");

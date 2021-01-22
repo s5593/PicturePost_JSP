@@ -17,7 +17,8 @@ src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 
 </head>
 <body>
-<div class="navbar navbar-default">
+<h1>Share the Picture!!!</h1>
+<div class="navbar navbar-default" style="margin: 5px">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
       <span class="icon-bar"></span>
@@ -28,18 +29,25 @@ src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-     
-      <li><a href="${pageContext.request.contextPath}/user/login.jsp">Login</a></li>
-      <li><a href="${pageContext.request.contextPath}/front?key=elec&methodName=select">Board</a></li>
+      	<li><a href="${pageContext.request.contextPath}/postView/human.jsp">Human</a></li>
+    	<li><a href="${pageContext.request.contextPath}/postView/animal.jsp">Animal</a></li>
+    	<li><a href="${pageContext.request.contextPath}/postView/scenery.jsp">scenery</a></li>  
      </ul>
-     <c:if test="${loginUser != null}">
 	     <ul class="nav navbar-nav navbar-right">
-	     	<li class="active"><a href="#">${loginUser}!</a></li>
-	      	<li><a href="${pageContext.request.contextPath}/front?key=user&methodName=logout" class="btn btn-danger">Logout</a></li>
-	     </ul>
-     </c:if>
+	     <c:choose>
+	     <c:when test="${loginUser==null}">
+	        <li><a href="${pageContext.request.contextPath}/user/login.jsp" class="btn btn-danger">Login</a></li>
+	       </c:when>
+	        <c:otherwise>
+	     		<li class="active"><a href="${pageContext.request.contextPath}/user/login.jsp">${loginUser}</a></li>
+	      		<li><a href="${pageContext.request.contextPath}/front?key=user&methodName=logout" class="btn btn-danger">Logout</a></li>
+	    		 
+     	</c:otherwise>
+     </c:choose>
+     </ul>    
   </div>
 </div>
+<span style="font-size:20pt;">&lt;<a href="${path}/postView/write.jsp">글쓰기</a>&gt;</span>
 
 
 

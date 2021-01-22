@@ -4,10 +4,8 @@
 <jsp:include page="../common/header.jsp"/>
 <div class="jumbotron">
 	<h1>Login</h1>
-	<p>Login, AOP/HttpSession</p>
-	<p>
-		<a class="btn btn-primary btn-lg">Learn more</a>
-	</p>
+	<p>로그인시 사진 포스트가 가능해집니다!</p>
+
 </div>
 
 <c:choose>
@@ -49,7 +47,7 @@
 					<button type="button" class="close" data-dismiss="alert">Ã</button>
 					<h4>Welcome!</h4>
 					<p>
-						<a href="#" class="alert-link">${loginUser} / ${loginName}</a>.
+						<a href="#" class="alert-link">${loginUser}/${loginName}</a>.
 					</p>
 				</div>
 			</blockquote>

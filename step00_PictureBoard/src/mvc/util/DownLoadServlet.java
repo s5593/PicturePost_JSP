@@ -20,11 +20,11 @@ public class DownLoadServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1. 넘어오는 파일의 이름을 받기
-		String fName = request.getParameter("fileName");
+		String fName = request.getParameter("file");
 		System.out.println("fName = " + fName);
 		
 		//2. 저장폴더의 실제 경로를 얻어오기
-		String saveDir=request.getServletContext().getRealPath("/save");
+		String saveDir=request.getServletContext().getRealPath("C:\\Users\\s5593\\Desktop\\myGitHub\\PicturePost_JSP\\save");
 		System.out.println("saveDir = " + saveDir);
 		
 		File file = new File(saveDir, fName);

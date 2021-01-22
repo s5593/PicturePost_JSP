@@ -20,7 +20,7 @@ public class DbUtil {
 	static {
 		try {
 		  Context initContext = new InitialContext();
-		  ds = (DataSource)initContext.lookup("java:/comp/env/jdbc/myoracle");
+		  ds = (DataSource)initContext.lookup("java:/comp/env/jdbc/myOracle");
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

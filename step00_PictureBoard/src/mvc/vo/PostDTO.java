@@ -1,26 +1,38 @@
 package mvc.vo;
 
-public class Electronics {
+public class PostDTO {
 	private String postNum;
 	private String postName ;
+	private String category;
 	private String picture; 
 	private String password ;
 	private String writeday; 
 	
-	public Electronics(){}
+	public PostDTO(){}
 	
 
-	public Electronics(String postNum, String password) {
+	public PostDTO(String postNum, String password) {
 		this.postNum = postNum;
 		this.password = password;
 	}
 	
 
-	public Electronics(String postNum, String postName, String picture, String password) {
+	public PostDTO(String postNum, String postName, String category, String password) {
+		super();
 		this.postNum = postNum;
 		this.postName = postName;
+		this.category = category;
+		this.password = password;
+	}
+
+
+	public PostDTO(String postNum, String postName, String category, String picture, String password, String writeday) {
+		this.postNum = postNum;
+		this.postName = postName;
+		this.category = category;
 		this.picture = picture;
 		this.password = password;
+		this.writeday = writeday;
 	}
 
 
@@ -71,6 +83,16 @@ public class Electronics {
 
 	public void setWriteday(String writeday) {
 		this.writeday = writeday;
+	}
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 

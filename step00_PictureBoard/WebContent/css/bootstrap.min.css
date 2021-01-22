@@ -25,7 +25,7 @@ audio,canvas,progress,video {
 	vertical-align: baseline
 }
 
-audio:not ([controls] ){
+audio:not ([controls]){
 	display: none;
 	height: 0
 }

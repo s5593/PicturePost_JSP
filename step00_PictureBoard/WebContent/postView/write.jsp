@@ -9,25 +9,20 @@ function checkValid() {
     var f = window.document.writeForm;
 		
 	if ( f.model_num.value == "") {
-	    alert( "모델번호를 입력해 주세요." );
-	    f.model_num.focus();
+	    alert( "포스트번호를 입력해 주세요." );
+	    f.post_num.focus();
 		return false;
     }
 	if ( f.model_name.value == "" ) {
-		alert( "모델이름을 입력해 주세요." );
-		f.model_name.focus();
+		alert( "포스트이름을 입력해 주세요." );
+		f.post_name.focus();
 		return false;
 	}
 	if ( f.price.value == "" ) {
-		alert( "가격을 입력해 주세요." );
-		f.price.focus();
+		alert( "카테고리를 입력해 주세요." );
+		f.categoty.focus();
 		return false;
 	}
-	if ( f.description.value == "" ) {
-        alert( "상품 설명을 입력해 주세요." );
-        f.description.focus();
-        return false;
-    }
 	if ( f.password.value == "" ) {
         alert( "비밀번호를 입력해 주세요" );
         f.password.focus();
@@ -42,11 +37,10 @@ function checkValid() {
 </HEAD>
 <BODY>
 
-<form name="writeForm" method="post" action="${path}/front?key=elec&methodName=insert" 
+<form name="writeForm" method="post" action="${path}/front?key=post&methodName=insert" 
   onSubmit='return checkValid()' enctype="multipart/form-data">
 
 <table align="center" cellpadding="5" cellspacing="2" width="600" border="1" >
-
     <tr>
         <td width="1220" height="20" colspan="2" bgcolor="#00cc00">
             <p align="center"><font color="white" size="3"><b> 상품 등록 </b></font></p>
@@ -54,40 +48,38 @@ function checkValid() {
     </tr>
     <tr>
         <td width="150" height="20" >
-            <p align="right"><b><span style="font-size:9pt;">모델번호</span></b></p>
+            <p align="right"><b><span style="font-size:9pt;">포스트번호</span></b></p>
         </td>
         <td width="450" height="20"><b><span style="font-size:9pt;">
-		<input type=text name="model_num" size="30"></span></b></td>
+		<input type=text name="post_num" size="30"></span></b></td>
     </tr>
     <tr>
         <td width="150" height="20">
-            <p align="right"><b><span style="font-size:9pt;">모델이름</span></b></p>
+            <p align="right"><b><span style="font-size:9pt;">포스트이름</span></b></p>
         </td>
         <td width="450" height="20"><b><span style="font-size:9pt;">
-		<input type=text name="model_name" size="30"></span></b></td>
+		<input type=text name="post_name" size="30"></span></b></td>
     </tr>
     <tr>
         <td width="150" height="20">
-            <p align="right"><b><span style="font-size:9pt;">가격</span></b></p>
+            <p align="right"><b><span style="font-size:9pt;">카테고리</span></b></p>
         </td>
-        <td width="450" height="20" ><b><span style="font-size:9pt;">
-		<input type=text name="price" size="50"></span></b></td>
-    </tr>
-    <tr>
-        <td width="150" height="20">
-            <p align="right"><b><span style="font-size:9pt;">설명</span></b></p>
-        </td>
-        <td width="450" height="20"><b><span style="font-size:9pt;">
-		<textarea name="description" cols="50" rows="10"></textarea></span></b></td>
-    </tr>
-    
+        <td width="450" height="20" >
+
+<select name="category">
+	<option value="">===선택===</option>
+    <option value="humen">사람</option>
+    <option value="animal">동물</option>
+    <option value="scenery">풍경</option>
+</select></td>
+    </tr>    
      <tr>
         <td width="150" height="20">
-            <p align="right"><b><span style="font-size:9pt;">*파일첨부</span></b></p>
+            <p align="right"><b><span style="font-size:9pt;">사진첨부</span></b></p>
         </td>
         <td width="450" height="20">
         	<b><span style="font-size:9pt;">
-        		 <input type="file" name="file" maxlength="60" size="40">
+        		 <input type="file" name="picture" maxlength="60" size="40">
         	   </span></b>
         </td>
     </tr>
@@ -103,7 +95,7 @@ function checkValid() {
         </td>
     </tr>
     <tr>
-        <td width="450" height="20" colspan="2" align="center"><b><span style="font-size:9pt;"><input type=submit value=글쓰기> 
+        <td width="450" height="20" colspan="2" align="center"><b><span style="font-size:9pt;"><input type=submit value=포스팅> 
         <input type=reset value=다시쓰기></span></b></td>
     </tr>
 </table>
@@ -111,6 +103,6 @@ function checkValid() {
 </form>
 
 <hr>
-<div align=right><span style="font-size:9pt;">&lt;<a href="../elec?command=list">리스트로 돌아가기</a>&gt;</span></div>
+<div align=right><span style="font-size:9pt;">&lt;<a href="${path}">리스트로 돌아가기</a>&gt;</span></div>
 
 <jsp:include page="../common/footer.jsp"/>

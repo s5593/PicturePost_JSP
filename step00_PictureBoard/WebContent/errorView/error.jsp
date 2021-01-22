@@ -22,6 +22,7 @@
 			<div class="btn-group btn-group-justified">
 				<a href="${pageContext.request.contextPath}/user/login.jsp" class="btn btn-primary">Login</a>
 				<a href="${pageContext.request.contextPath}" class="btn btn-success">Return Website</a>
+				<a href="javascript:history.back()" class="btn btn-primary">Back</a>
 			</div>
 
 		    </div>

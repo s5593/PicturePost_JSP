@@ -8,7 +8,7 @@ package mvc.controller;
  */
 public class ModelAndView {
 	private String viewName;	//결과뷰 페이지 이름
-	private boolean isRedirect;	//false면 forward방식, true면 redirect방식
+	private boolean isRedirect = false;	//false면 forward방식, true면 redirect방식
 	
 	public ModelAndView() {}
 
